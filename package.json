@@ -1,11 +1,18 @@
 {
   "name": "dot-file-config",
   "version": "0.0.1",
-  "description": "",
+  "description": "npm package for saving app's config in json dot-file",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ewnd9/dot-file-config.git"
+  },
+  "author": "ewnd9 <ewndnine@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.0.0"
+  }
 }

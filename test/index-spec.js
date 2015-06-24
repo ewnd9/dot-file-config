@@ -48,5 +48,12 @@ describe("dot-file-config", function() {
       });
     });
 
+    it("should resolve default config absolute path", function(){
+      config = lib('.dot-file-test', 'user-config.json');
+
+      var path = require('path').resolve(__dirname + '/../' + 'user-config.json');
+      expect(config.defaultPath).to.equal(path);
+    });
+
   });
 });

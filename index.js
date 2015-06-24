@@ -1,4 +1,5 @@
 var fs = require('fs');
+var path = require('path');
 
 module.exports = function(name, defaultConfigFile, firstRunCallback) {
 
@@ -14,6 +15,7 @@ module.exports = function(name, defaultConfigFile, firstRunCallback) {
     } else if (defaultConfigFile) {
       fs.writeFileSync(this.path, fs.readFileSync(defaultConfigFile));
       this.data = JSON.parse(fs.readFileSync(this.path));
+      this.defaultPath = path.resolve(defaultConfigFile);
 
       if (firstRunCallback && typeof firstRunCallback === 'function') {
         firstRunCallback();

@@ -8,6 +8,7 @@ npm package for saving app's config in json dot-file
 var config = require('dot-file-config')('.your-app-name', 'default-config-file', firstRunCallback);
 
 config.path // path to config file
+config.defaultPath // absolute path to default config file (argument can be relative) 
 config.data // your config
 config.save() // persist config.data back to dot-file
 ```

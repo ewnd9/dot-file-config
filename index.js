@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-module.exports = function(name, defaultConfigFile) {
+module.exports = function(name, defaultConfigFile, firstRunCallback) {
 
   return new function() {
     var homePath = process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'] + '/' + name;
@@ -8,11 +8,16 @@ module.exports = function(name, defaultConfigFile) {
     this.path = homePath;
     this.data = null;
 
+
     if (fs.existsSync(this.path)) {
       this.data = JSON.parse(fs.readFileSync(this.path));
     } else if (defaultConfigFile) {
       fs.writeFileSync(this.path, fs.readFileSync(defaultConfigFile));
       this.data = JSON.parse(fs.readFileSync(this.path));
+
+      if (firstRunCallback && typeof firstRunCallback === 'function') {
+        firstRunCallback();
+      }
     } else {
       this.data = {};
     };

@@ -25,6 +25,7 @@ describe("dot-file-config", function() {
       config = lib('.dot-file-test', 'user-config.json');
 
       expect(fs.existsSync(config.path)).to.equal(true);
+      expect(fs.existsSync(config.path)).to.equal(true);
       expect(Object.keys(config.data).length).to.equal(1);
       expect(config.data.test).to.equal('test');
     });
@@ -39,6 +40,12 @@ describe("dot-file-config", function() {
 
       expect(Object.keys(config.data).length).to.equal(2);
       expect(config.data.persist).to.equal('test');
+    });
+
+    it("should call firstRunCallback", function(done){
+      config = lib('.dot-file-test', 'user-config.json', function() {
+        done();
+      });
     });
 
   });

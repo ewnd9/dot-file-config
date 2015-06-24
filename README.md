@@ -1,5 +1,7 @@
 # dot-file-config
 
+[![Build Status](https://travis-ci.org/ewnd9/dot-file-config.svg?branch=master)](https://travis-ci.org/ewnd9/dot-file-config)
+
 npm package for saving app's config in json dot-file
 
 ## Install

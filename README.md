@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ewnd9/dot-file-config.svg?branch=master)](https://travis-ci.org/ewnd9/dot-file-config)
 
-npm package for saving app's config in json dot-file
+npm package for saving app config in human readable/editable json dot-file
 
 ## Install
 
@@ -30,6 +30,13 @@ config.save() // persist config.data back to dot-file
 
 ## Changelog
 
-__0.0.2:__
+### 0.0.2:
 
 - [x] `firstRunCallback`
+
+## Alternatives
+
+- [configstore](https://github.com/yeoman/configstore)
+- [text-db](https://github.com/asarode/text-db)
+- [node-store](https://github.com/alexkwolfe/node-store)
+- [jsop](https://github.com/typicode/jsop)

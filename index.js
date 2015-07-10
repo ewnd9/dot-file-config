@@ -25,7 +25,7 @@ module.exports = function(name, defaultConfigFile, firstRunCallback) {
     };
 
     this.save = function() {
-      fs.writeFileSync(this.path, JSON.stringify(this.data));
+      fs.writeFileSync(this.path, JSON.stringify(this.data, null, 4));
     }.bind(this);
   };
 

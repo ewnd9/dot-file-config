@@ -13,12 +13,18 @@ $ npm install dot-file-config --save
 ## Usage
 
 ```javascript
+// main.js
 var config = require('dot-file-config')('.your-app-name', 'default-config-file', firstRunCallback);
 
 config.path // path to config file
 config.defaultPath // absolute path to default config file (argument can be relative)
 config.data // your config
 config.save() // persist config.data back to dot-file
+
+// component.js
+var config = require('dot-file-config')('.your-app-name');
+
+config.data // same as in main.js
 ```
 
 `firstRunCallback` called if default-config-file is defined and dot-file is not exists

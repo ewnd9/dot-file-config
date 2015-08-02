@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/ewnd9/dot-file-config.svg?branch=master)](https://travis-ci.org/ewnd9/dot-file-config)
 
 npm package for saving app config in human readable/editable json dot-file
+with support of [backup via dropbox](https://github.com/ewnd9/dropbox-symlink)
 
 ## Install
 
@@ -19,6 +20,7 @@ var config = require('dot-file-config')('.your-app-name', 'default-config-file',
 config.path // path to config file
 config.defaultPath // absolute path to default config file (argument can be relative)
 config.data // your config
+config.dropbox // see https://github.com/ewnd9/dropbox-symlink
 config.save() // persist config.data back to dot-file
 
 // component.js

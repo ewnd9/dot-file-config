@@ -1,12 +1,13 @@
 var fs = require('fs');
-var expect = require("chai").expect;
+var path = require('path');
+var expect = require('chai').expect;
 
 describe("dot-file-config", function() {
 
-  var lib = require('../index.js');
+  var lib = require('./../');
   var config = null;
 
-  var configPath = '.dot-file-test';
+  var configPath = '.dot-file-config-test';
   var configDefault = 'user-config.json';
 
   afterEach(function() {
@@ -21,8 +22,8 @@ describe("dot-file-config", function() {
   it("should return empty object if defaultConfigFile is not given", function(){
     config = lib(configPath);
 
-    expect(fs.existsSync(config.path)).to.equal(false);
-    expect(config.data.toString()).to.equal({}.toString()); // lol
+    expect(fs.existsSync(config.path)).to.equal(true);
+    expect(Object.keys(config.data).length).to.equal(0);
   });
 
   it("should copy defaultConfigFile if given", function(){

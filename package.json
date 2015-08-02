@@ -15,5 +15,10 @@
   "devDependencies": {
     "chai": "^3.0.0",
     "mocha": "^2.2.5"
+  },
+  "dependencies": {
+    "dropbox-symlink": "0.0.3",
+    "symlink-or-copy": "^1.0.1",
+    "user-home": "^2.0.0"
   }
 }

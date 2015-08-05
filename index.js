@@ -4,7 +4,13 @@ var homePath = require('user-home');
 
 var configs = {};
 
-module.exports = function(name, defaultConfigFile, firstRunCallback) {
+module.exports = function(name, options) {
+
+  options = options || {};
+
+  var defaultConfigFile = options.defaultConfigFile;
+  var firstRunCallback = options.firstRunCallback;
+  var cloudSync = (typeof options.cloudSync === 'undefined') ? true : options.cloudSync;
 
   if (!configs[name]) {
     configs[name] = new function() {
@@ -31,11 +37,11 @@ module.exports = function(name, defaultConfigFile, firstRunCallback) {
       if (fs.existsSync(this.path)) {
         this.data = JSON.parse(fs.readFileSync(this.path));
 
-        if (dropbox.exists && !dropbox.fileExists) {
+        if (cloudSync && dropbox.exists && !dropbox.fileExists) {
           dropbox.linkToDropbox();
         }
       } else {
-        if (dropbox.exists && dropbox.fileExists) {
+        if (cloudSync && dropbox.exists && dropbox.fileExists) {
           dropbox.linkFromDropbox();
           this.data = JSON.parse(fs.readFileSync(this.path, 'utf-8'));
         } else {
@@ -52,7 +58,7 @@ module.exports = function(name, defaultConfigFile, firstRunCallback) {
 
           this.save();
 
-          if (dropbox.exists && !dropbox.fileExists) {
+          if (cloudSync && dropbox.exists && !dropbox.fileExists) {
             dropbox.linkToDropbox();
           }
         }

@@ -27,33 +27,43 @@ describe("dot-file-config", function() {
   });
 
   it("should copy defaultConfigFile if given", function(){
-    config = lib(configPath, configDefault);
+    config = lib(configPath, {
+      defaultConfigFile: configDefault
+    });
+
     expect(fs.existsSync(config.path)).to.equal(true);
     expect(Object.keys(config.data).length).to.equal(1);
     expect(config.data.test).to.equal('test');
   });
 
   it("should persist data", function(){
-    config = lib(configPath, configDefault);
+    config = lib(configPath, {
+      defaultConfigFile: configDefault
+    });
 
     config.data.persist = 'test';
     config.save();
     config.close();
 
-    config = lib(configPath, configDefault);
+    config = lib(configPath, {
+      defaultConfigFile: configDefault
+    });
 
     expect(Object.keys(config.data).length).to.equal(2);
     expect(config.data.persist).to.equal('test');
   });
 
   it("should call firstRunCallback", function(done){
-    config = lib(configPath, configDefault, function() {
-      done();
+    config = lib(configPath, {
+      defaultConfigFile: configDefault,
+      firstRunCallback: done
     });
   });
 
   it("should resolve default config absolute path", function(){
-    config = lib(configPath, configDefault);
+    config = lib(configPath, {
+      defaultConfigFile: configDefault
+    });
 
     var path = require('path').resolve(__dirname + '/../' + 'user-config.json');
     expect(config.defaultPath).to.equal(path);

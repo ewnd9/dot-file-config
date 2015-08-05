@@ -15,7 +15,7 @@ $ npm install dot-file-config --save
 
 ```javascript
 // main.js
-var config = require('dot-file-config')('.your-app-name', 'default-config-file', firstRunCallback);
+var config = require('dot-file-config')('.your-app-name', options);
 
 config.path // path to config file
 config.defaultPath // absolute path to default config file (argument can be relative)
@@ -27,7 +27,16 @@ config.save() // persist config.data back to dot-file
 var config = require('dot-file-config')('.your-app-name');
 
 config.data // same as in main.js
+config.close() // clear cache for current config
 ```
+
+### Options
+
+These are keys in the options object you can pass to the progress bar along with
+`total` as seen in the example above.
+
+- `defaultConfigFile` relative path to default config file
+- `cloudSync` true by default, enable [symlinking config to Dropbox folder](https://github.com/ewnd9/dropbox-symlink)
 
 `firstRunCallback` called if default-config-file is defined and dot-file is not exists
 

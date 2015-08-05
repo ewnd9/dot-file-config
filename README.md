@@ -32,13 +32,8 @@ config.close() // clear cache for current config
 
 ### Options
 
-These are keys in the options object you can pass to the progress bar along with
-`total` as seen in the example above.
-
 - `defaultConfigFile` relative path to default config file
 - `cloudSync` true by default, enable [symlinking config to Dropbox folder](https://github.com/ewnd9/dropbox-symlink)
-
-`firstRunCallback` called if default-config-file is defined and dot-file is not exists
 
 ## Roadmap
 

@@ -1,6 +1,6 @@
 {
   "name": "dot-file-config",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "npm package for saving app's config in json dot-file",
   "main": "index.js",
   "scripts": {

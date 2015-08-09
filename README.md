@@ -14,20 +14,14 @@ $ npm install dot-file-config --save
 ## Usage
 
 ```javascript
-// main.js
 var config = require('dot-file-config')('.your-app-name', options);
 
 config.path // path to config file
 config.defaultPath // absolute path to default config file (argument can be relative)
 config.data // your config
 config.dropbox // see https://github.com/ewnd9/dropbox-symlink
+config.isFirstRun // true when config didn't exist before
 config.save() // persist config.data back to dot-file
-
-// component.js
-var config = require('dot-file-config')('.your-app-name');
-
-config.data // same as in main.js
-config.close() // clear cache for current config
 ```
 
 ### Options
@@ -39,12 +33,6 @@ config.close() // clear cache for current config
 
 - [ ] Default messages on first run and api to set custom
 - [ ] Yaml configs support
-
-## Changelog
-
-### 0.0.2:
-
-- [x] `firstRunCallback`
 
 ## Alternatives
 

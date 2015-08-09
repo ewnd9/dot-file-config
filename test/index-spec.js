@@ -11,11 +11,8 @@ describe("dot-file-config", function() {
   var configDefault = 'user-config.json';
 
   afterEach(function() {
-    if (config !== null) {
-      config.close();
-      if (fs.existsSync(config.path)) {
-        fs.unlinkSync(config.path);
-      }
+    if (config !== null && fs.existsSync(config.path)) {
+      fs.unlinkSync(config.path);
     }
   });
 
@@ -43,7 +40,6 @@ describe("dot-file-config", function() {
 
     config.data.persist = 'test';
     config.save();
-    config.close();
 
     config = lib(configPath, {
       defaultConfigFile: configDefault

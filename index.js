@@ -24,6 +24,10 @@ module.exports = function(name, options) {
       }
     });
 
+    this.reload = function() {
+      this.data = JSON.parse(fs.readFileSync(this.path));
+    };
+
     this.save = function() {
       fs.writeFileSync(this.path, JSON.stringify(this.data, null, 4)); // @TODO copy to dropbox on windows
     }.bind(this);
@@ -36,7 +40,7 @@ module.exports = function(name, options) {
       }
     } else {
       this.isFirstRun = true;
-      
+
       if (cloudSync && dropbox.exists && dropbox.fileExists) {
         dropbox.linkFromDropbox();
         this.data = JSON.parse(fs.readFileSync(this.path, 'utf-8'));

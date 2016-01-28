@@ -2,8 +2,9 @@
 
 [![Build Status](https://travis-ci.org/ewnd9/dot-file-config.svg?branch=master)](https://travis-ci.org/ewnd9/dot-file-config)
 
-npm package for saving app config in human readable/editable json dot-file
-with support of [backup via dropbox](https://github.com/ewnd9/dropbox-symlink)
+> A dot-file is generally any file whose name begins with a full stop. https://en.wikipedia.org/wiki/Dot-file
+
+Manage application state via config in json dot-file
 
 ## Install
 
@@ -13,26 +14,25 @@ $ npm install dot-file-config --save
 
 ## Usage
 
-```javascript
-var config = require('dot-file-config')('.your-app-name', options);
+```js
+var config = require('dot-file-config')('.your-app-name', {
+	defaultConfigFile: <String>, // relative path
+	onFirstRun: <Function> // optional
+});
 
 config.path // path to config file
 config.defaultPath // absolute path to default config file (argument can be relative)
-config.data // your config
-config.dropbox // see https://github.com/ewnd9/dropbox-symlink
+config.data // content of dot-file
 config.isFirstRun // true when config didn't exist before
 config.save() // persist config.data back to dot-file
 ```
 
-### Options
+## Changelog
 
-- `defaultConfigFile` relative path to default config file
-- `cloudSync` true by default, enable [symlinking config to Dropbox folder](https://github.com/ewnd9/dropbox-symlink)
+- `v0.6.0`
 
-## Roadmap
-
-- [ ] Default messages on first run and api to set custom
-- [ ] Yaml configs support
+	- Removed symlinking to Dropbox
+	- options' `firstRunCallback` renamed to `onFirstRun`
 
 ## Alternatives
 

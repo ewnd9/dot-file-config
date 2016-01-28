@@ -1,7 +1,7 @@
 {
   "name": "dot-file-config",
   "version": "0.5.0",
-  "description": "npm package for saving app's config in json dot-file",
+  "description": "Manage application state via config in json dot-file",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -17,8 +17,6 @@
     "mocha": "^2.2.5"
   },
   "dependencies": {
-    "dropbox-symlink": "0.0.3",
-    "symlink-or-copy": "^1.0.1",
     "user-home": "^2.0.0"
   }
 }

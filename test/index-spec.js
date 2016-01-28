@@ -49,10 +49,10 @@ describe("dot-file-config", function() {
     expect(config.data.persist).to.equal('test');
   });
 
-  it("should call firstRunCallback", function(done){
+  it("should call onFirstRun", function(done){
     config = lib(configPath, {
       defaultConfigFile: configDefault,
-      firstRunCallback: done
+      onFirstRun: done
     });
   });
 

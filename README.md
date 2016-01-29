@@ -34,9 +34,13 @@ config.save() // persist config.data back to dot-file
 	- Removed symlinking to Dropbox
 	- options' `firstRunCallback` renamed to `onFirstRun`
 
-## Alternatives
+## Related
 
 - [configstore](https://github.com/yeoman/configstore)
 - [text-db](https://github.com/asarode/text-db)
 - [node-store](https://github.com/alexkwolfe/node-store)
 - [jsop](https://github.com/typicode/jsop)
+
+## License
+
+MIT © [ewnd9](http://ewnd9.com)
